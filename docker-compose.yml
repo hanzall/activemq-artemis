@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  artemis:
+  #  image: quay.io/artemiscloud/activemq-artemis-broker
+  #  image: vromero/activemq-artemis
+    build: 
+      context: ./artemis-docker
+      dockerfile: Dockerfile-ubuntu-11
+    
+    environment:
+      - ARTEMIS_USER=admin
+      - ARTEMIS_PASSWORD=admin
+
+    ports:
+     - 61616:61616
+     - "5672:5672"
+     - 8161:8161
